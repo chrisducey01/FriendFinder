@@ -12,7 +12,7 @@ app.use(express.json());
 require("./app/routing/apiRoutes")(app);
 require("./app/routing/htmlRoutes")(app);
 
-const connection;
+let connection;
 if(process.env.JAWSDB_URL){
     //setup connection to use JAWSDB instance on heroku
     connection = mysql.createConnection(process.env.JAWSDB_URL);
