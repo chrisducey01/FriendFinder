@@ -12,6 +12,8 @@ app.use(express.json());
 require("./app/routing/apiRoutes")(app);
 require("./app/routing/htmlRoutes")(app);
 
+const PORT=process.env.PORT || 3000;
+
 let connection;
 if(process.env.JAWSDB_URL){
     //setup connection to use JAWSDB instance on heroku
@@ -27,5 +29,9 @@ else{
         database: process.env.LOCAL_DB_NAME
     });
 }
+
+app.listen(PORT,()=>{
+    console.log(`Listening on Port ${PORT}`);
+});
 
 
