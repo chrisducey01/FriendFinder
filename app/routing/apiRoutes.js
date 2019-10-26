@@ -30,7 +30,7 @@ module.exports = function(app){
 
     app.post("/api/friends",(req,res)=>{
         const person = req.body;
-        console.log(person);
+        console.log(req.body);
         res.send(true);
     });
 };
