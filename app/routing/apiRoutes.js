@@ -1,36 +1,42 @@
-require("dotenv").config();
-const mysql = require("mysql");
 
-let connection;
-if(process.env.JAWSDB_URL){
-    //setup connection to use JAWSDB instance on heroku
-    connection = mysql.createConnection(process.env.JAWSDB_URL);
-}
-else{
-    //setup local connection
-    connection = mysql.createConnection({
-        user: process.env.LOCAL_DB_USER,
-        password: process.env.LOCAL_DB_PASSWORD,
-        port: process.env.LOCAL_DB_PORT,
-        host: localhost,
-        database: process.env.LOCAL_DB_NAME
-    });
-}
-
-const person = {
-    name: "",
-    photo_url: "",
-    answers: []
-};
-
-module.exports = function(app){
-    app.get("/api/friends",(req,res)=>{
-
+module.exports = function (app, connection) {
+    app.get("/api/friends", (req, res) => {
+        // res.json(friendArr);
     });
 
-    app.post("/api/friends",(req,res)=>{
+    app.post("/api/friends", (req, res) => {
         const person = req.body;
-        console.log(req.body);
-        res.send(true);
-    });
-};
+
+        connection.query("INSERT INTO users(name, photo_url) VALUES (?,?)", [person.name, person.photo_url], (err, data, fields) => {
+            if (err) {
+                console.log(`Error inserting new user into db - user: ${person.name}`);
+                console.log(err);
+                return res.status(500).end();
+            }
+
+            let userId = data.insertId;
+            console.log(`New user successfully inserted into db.  New user id: ${userId}`);
+
+            // Build array of answers to insert into DB, attach the new user id as part of the array (foreign key)
+            let answerKeys = Object.keys(req.body).filter(answer => { return answer.startsWith("question") });
+            let answerArr = [];
+            answerKeys.forEach(answerKey => {
+                answerArr.push([ userId, Number(answerKey.split("-")[1]), Number(person[answerKey])]);
+            });
+
+            console.log(answerArr);
+
+            connection.query("INSERT INTO answers (user_id, answer_num, score) VALUES ?",[answerArr],(err,data,fields)=>{
+                if(err){
+                    console.log(`Error inserting answers into db - user_id: ${userId}`);
+                    console.log(err);
+                    return res.status(500).end();
+                }
+
+                console.log(`Answers successfully inserted into db for user id: ${userId}`);
+
+                res.json({ user_id: userId });
+            }); //insert answers for user
+        }); //insert user
+    });  //app.post
+}; //module.exports
