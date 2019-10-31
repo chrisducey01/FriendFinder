@@ -1,3 +1,15 @@
+-- Run this section to create the database on a localhost
+-- If hosting mysql on Heroku you can skip this step since 
+--   db is already created for you there
+DROP DATABASE IF EXISTS friends_db;
+
+CREATE DATABASE friends_db;
+
+USE friends_db;
+
+-- Run the SQL below regardless of where the db is hosted
+-- to create the table needed for the app to run
+
 DROP TABLE IF EXISTS users;
 
 CREATE TABLE users(
