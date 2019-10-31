@@ -17,14 +17,15 @@
 <body>
 
     <div class="container">
-        <form action="/api/friends" method="POST">
+        <form id="survey-form">
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="input" class="form-control" name="name" id="name" placeholder="John Doe" required>
             </div>
             <div class="form-group">
                 <label for="photo_url">Link to Photo Image</label>
-                <input type="input" class="form-control" name="photo_url" id="photo_url" placeholder="https://www.fakeimageaddress.com" required>
+                <input type="input" class="form-control" name="photo_url" id="photo_url"
+                    placeholder="https://www.fakeimageaddress.com" required>
             </div>
             <div class="form-group">
                 <label for="question_1">Question 1 - Are you a morning person?</label>
@@ -49,20 +50,40 @@
                 </select>
             </div>
             <div class="form-group">
-                    <label for="question_3">Question 3 - Do you like piña coladas?</label>
-                    <select class="form-control" name="question_3" id="question_3" required>
-                        <option value="" disabled selected hidden>Please Choose...</option>
-                        <option value="1">Strongly Disagree</option>
-                        <option value="2">Somewhat Disagree</option>
-                        <option value="3">Neutral</option>
-                        <option value="4">Somewhat Agree</option>
-                        <option value="5">Strongly Agree</option>
-                    </select>
-                </div>    
+                <label for="question_3">Question 3 - Do you like piña coladas?</label>
+                <select class="form-control" name="question_3" id="question_3" required>
+                    <option value="" disabled selected hidden>Please Choose...</option>
+                    <option value="1">Strongly Disagree</option>
+                    <option value="2">Somewhat Disagree</option>
+                    <option value="3">Neutral</option>
+                    <option value="4">Somewhat Agree</option>
+                    <option value="5">Strongly Agree</option>
+                </select>
+            </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" id="survey-submit" class="btn btn-primary">Submit</button>
             </div>
         </form>
+
+        <div class="modal" id="modal-1" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content text-center">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Check Out Your New Friend</h5>
+                        <button type="button" class="close redirect" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h1 id="modal-friend-name"></h1>
+                        <img src="#" id="modal-friend-img" alt="Friend's Picture">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary redirect">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
@@ -76,7 +97,36 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
-    <script src=""></script>
+    <script type="text/javascript">
+        $("document").ready(function () {
+            $("#survey-submit").click(function (event) {
+                event.preventDefault();
+
+                $.ajax({
+                    method: "POST",
+                    url: "/api/friends",
+                    data:
+                    {
+                        name: $("#name").val().trim(),
+                        photo_url: $("#photo_url").val().trim(),
+                        question_1: $("#question_1").val().trim(),
+                        question_2: $("#question_2").val().trim(),
+                        question_3: $("#question_3").val().trim()
+                    }
+                }).then(function(data) {
+                    console.log("Data posted - Toggling modal to appear.");
+                    console.log(data);
+                    $("#modal-friend-name").text(data.name);
+                    $("#modal-friend-img").attr("src",data.photo_url);
+                    $('#modal-1').modal('toggle');
+                });
+            });
+
+            $(".redirect").click(function(event){
+                document.location.href = "/";
+            });
+        });
+    </script>
 </body>
 
 </html>

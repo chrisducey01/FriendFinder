@@ -12,8 +12,6 @@ module.exports = function (app, connection) {
         let newAnswerArr = [];
         for (let i = 1; i <= 10; i++) {
             let tempAnswer = Number(person[`question_${i}`]);
-            console.log(tempAnswer);
-            console.log(i);
             newAnswerArr.push(tempAnswer ? tempAnswer : 0);
         }
 
