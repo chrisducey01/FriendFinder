@@ -17,7 +17,7 @@
 <body>
 
     <div class="container">
-        <form id="survey-form">
+        <form id="survey-form" action="" method="POST">
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="input" class="form-control" name="name" id="name" placeholder="John Doe" required>
@@ -99,9 +99,8 @@
 
     <script type="text/javascript">
         $("document").ready(function () {
-            $("#survey-submit").click(function (event) {
+            $("form").on("submit",function(event){
                 event.preventDefault();
-
                 $.ajax({
                     method: "POST",
                     url: "/api/friends",
