@@ -19,152 +19,180 @@
         img {
             width: 90%;
         }
+
+        div>a {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        div>a:first-child {
+            border-right: 1px solid black;
+            padding-left: 0px;
+        }
     </style>
 
-    <div class="container">
-        <form id="survey-form" action="" method="POST">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="input" class="form-control" name="name" id="name" placeholder="John Doe" required>
-            </div>
-            <div class="form-group">
-                <label for="photo_url">Link to Photo Image</label>
-                <input type="input" class="form-control" name="photo_url" id="photo_url"
-                    placeholder="https://www.fakeimageaddress.com" required>
-            </div>
-            <div class="form-group">
-                <label for="question_1">Question 1 - Are you a morning person?</label>
-                <select class="form-control" name="question_1" id="question_1" required>
-                    <option value="" disabled selected hidden>Please Choose...</option>
-                    <option value="1">Strongly Disagree</option>
-                    <option value="2">Somewhat Disagree</option>
-                    <option value="3">Neutral</option>
-                    <option value="4">Somewhat Agree</option>
-                    <option value="5">Strongly Agree</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="question_2">Question 2 - Do you like tacos?</label>
-                <select class="form-control" name="question_2" id="question_2" required>
-                    <option value="" disabled selected hidden>Please Choose...</option>
-                    <option value="1">Strongly Disagree</option>
-                    <option value="2">Somewhat Disagree</option>
-                    <option value="3">Neutral</option>
-                    <option value="4">Somewhat Agree</option>
-                    <option value="5">Strongly Agree</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="question_3">Question 3 - Do you like piña coladas?</label>
-                <select class="form-control" name="question_3" id="question_3" required>
-                    <option value="" disabled selected hidden>Please Choose...</option>
-                    <option value="1">Strongly Disagree</option>
-                    <option value="2">Somewhat Disagree</option>
-                    <option value="3">Neutral</option>
-                    <option value="4">Somewhat Agree</option>
-                    <option value="5">Strongly Agree</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="question_4">Question 4 - Do you like getting caught in the rain?</label>
-                <select class="form-control" name="question_4" id="question_4" required>
-                    <option value="" disabled selected hidden>Please Choose...</option>
-                    <option value="1">Strongly Disagree</option>
-                    <option value="2">Somewhat Disagree</option>
-                    <option value="3">Neutral</option>
-                    <option value="4">Somewhat Agree</option>
-                    <option value="5">Strongly Agree</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="question_5">Question 5 - Do you like brownies that have nuts in them?</label>
-                <select class="form-control" name="question_5" id="question_5" required>
-                    <option value="" disabled selected hidden>Please Choose...</option>
-                    <option value="1">Strongly Disagree</option>
-                    <option value="2">Somewhat Disagree</option>
-                    <option value="3">Neutral</option>
-                    <option value="4">Somewhat Agree</option>
-                    <option value="5">Strongly Agree</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="question_6">Question 6 - How do you feel about this statement: "Cucumbers are a waste of a
-                    vegetable"</label>
-                <select class="form-control" name="question_6" id="question_6" required>
-                    <option value="" disabled selected hidden>Please Choose...</option>
-                    <option value="1">Strongly Disagree</option>
-                    <option value="2">Somewhat Disagree</option>
-                    <option value="3">Neutral</option>
-                    <option value="4">Somewhat Agree</option>
-                    <option value="5">Strongly Agree</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="question_7">Question 7 - How do you feel about this statement: "I love programming websites
-                    using PHP"</label>
-                <select class="form-control" name="question_7" id="question_7" required>
-                    <option value="" disabled selected hidden>Please Choose...</option>
-                    <option value="1">Strongly Disagree</option>
-                    <option value="2">Somewhat Disagree</option>
-                    <option value="3">Neutral</option>
-                    <option value="4">Somewhat Agree</option>
-                    <option value="5">Strongly Agree</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="question_8">Question 8 - Do you like eating at Taco Bell?</label>
-                <select class="form-control" name="question_8" id="question_8" required>
-                    <option value="" disabled selected hidden>Please Choose...</option>
-                    <option value="1">Strongly Disagree</option>
-                    <option value="2">Somewhat Disagree</option>
-                    <option value="3">Neutral</option>
-                    <option value="4">Somewhat Agree</option>
-                    <option value="5">Strongly Agree</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="question_9">Question 9 - Do you like watching sports on TV?</label>
-                <select class="form-control" name="question_9" id="question_9" required>
-                    <option value="" disabled selected hidden>Please Choose...</option>
-                    <option value="1">Strongly Disagree</option>
-                    <option value="2">Somewhat Disagree</option>
-                    <option value="3">Neutral</option>
-                    <option value="4">Somewhat Agree</option>
-                    <option value="5">Strongly Agree</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="question_10">Question 10 - Do you need coffee to wake up in the morning?</label>
-                <select class="form-control" name="question_10" id="question_10" required>
-                    <option value="" disabled selected hidden>Please Choose...</option>
-                    <option value="1">Strongly Disagree</option>
-                    <option value="2">Somewhat Disagree</option>
-                    <option value="3">Neutral</option>
-                    <option value="4">Somewhat Agree</option>
-                    <option value="5">Strongly Agree</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <button type="submit" id="survey-submit" class="btn btn-primary">Submit</button>
-            </div>
-        </form>
+    <div class="container mt-3">
+        <div class="row">
+            <h1>Survey Questionnaire</h1>
+            <h4>Fill out the questions below and click the Submit button. Your answers will be compared with our
+                existing
+                users to pair you with the one whose answers most closely match with yours.</h4>
+            <hr class="w-100">
+        </div>
+        <div class="row">
+            <h1>Tell Us About You</h1>
+            <form id="survey-form" action="" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="input" class="form-control" name="name" id="name" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label for="photo_url">Link to Photo Image</label>
+                    <input type="input" class="form-control" name="photo_url" id="photo_url"
+                        placeholder="https://www.fakeimageaddress.com" required>
+                </div>
+                <hr class="w-100">
+                <h1>Questions</h1>
+                <div class="form-group">
+                    <label for="question_1">Question 1 - Are you a morning person?</label>
+                    <select class="form-control" name="question_1" id="question_1" required>
+                        <option value="" disabled selected hidden>Please Choose...</option>
+                        <option value="1">Strongly Disagree</option>
+                        <option value="2">Somewhat Disagree</option>
+                        <option value="3">Neutral</option>
+                        <option value="4">Somewhat Agree</option>
+                        <option value="5">Strongly Agree</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="question_2">Question 2 - Do you like tacos?</label>
+                    <select class="form-control" name="question_2" id="question_2" required>
+                        <option value="" disabled selected hidden>Please Choose...</option>
+                        <option value="1">Strongly Disagree</option>
+                        <option value="2">Somewhat Disagree</option>
+                        <option value="3">Neutral</option>
+                        <option value="4">Somewhat Agree</option>
+                        <option value="5">Strongly Agree</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="question_3">Question 3 - Do you like piña coladas?</label>
+                    <select class="form-control" name="question_3" id="question_3" required>
+                        <option value="" disabled selected hidden>Please Choose...</option>
+                        <option value="1">Strongly Disagree</option>
+                        <option value="2">Somewhat Disagree</option>
+                        <option value="3">Neutral</option>
+                        <option value="4">Somewhat Agree</option>
+                        <option value="5">Strongly Agree</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="question_4">Question 4 - Do you like getting caught in the rain?</label>
+                    <select class="form-control" name="question_4" id="question_4" required>
+                        <option value="" disabled selected hidden>Please Choose...</option>
+                        <option value="1">Strongly Disagree</option>
+                        <option value="2">Somewhat Disagree</option>
+                        <option value="3">Neutral</option>
+                        <option value="4">Somewhat Agree</option>
+                        <option value="5">Strongly Agree</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="question_5">Question 5 - Do you like brownies that have nuts in them?</label>
+                    <select class="form-control" name="question_5" id="question_5" required>
+                        <option value="" disabled selected hidden>Please Choose...</option>
+                        <option value="1">Strongly Disagree</option>
+                        <option value="2">Somewhat Disagree</option>
+                        <option value="3">Neutral</option>
+                        <option value="4">Somewhat Agree</option>
+                        <option value="5">Strongly Agree</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="question_6">Question 6 - How do you feel about this statement: "Cucumbers are a waste of
+                        a
+                        vegetable"</label>
+                    <select class="form-control" name="question_6" id="question_6" required>
+                        <option value="" disabled selected hidden>Please Choose...</option>
+                        <option value="1">Strongly Disagree</option>
+                        <option value="2">Somewhat Disagree</option>
+                        <option value="3">Neutral</option>
+                        <option value="4">Somewhat Agree</option>
+                        <option value="5">Strongly Agree</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="question_7">Question 7 - How do you feel about this statement: "I love programming
+                        websites
+                        using PHP"</label>
+                    <select class="form-control" name="question_7" id="question_7" required>
+                        <option value="" disabled selected hidden>Please Choose...</option>
+                        <option value="1">Strongly Disagree</option>
+                        <option value="2">Somewhat Disagree</option>
+                        <option value="3">Neutral</option>
+                        <option value="4">Somewhat Agree</option>
+                        <option value="5">Strongly Agree</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="question_8">Question 8 - Do you like eating at Taco Bell?</label>
+                    <select class="form-control" name="question_8" id="question_8" required>
+                        <option value="" disabled selected hidden>Please Choose...</option>
+                        <option value="1">Strongly Disagree</option>
+                        <option value="2">Somewhat Disagree</option>
+                        <option value="3">Neutral</option>
+                        <option value="4">Somewhat Agree</option>
+                        <option value="5">Strongly Agree</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="question_9">Question 9 - Do you like watching sports on TV?</label>
+                    <select class="form-control" name="question_9" id="question_9" required>
+                        <option value="" disabled selected hidden>Please Choose...</option>
+                        <option value="1">Strongly Disagree</option>
+                        <option value="2">Somewhat Disagree</option>
+                        <option value="3">Neutral</option>
+                        <option value="4">Somewhat Agree</option>
+                        <option value="5">Strongly Agree</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="question_10">Question 10 - Do you need coffee to wake up in the morning?</label>
+                    <select class="form-control" name="question_10" id="question_10" required>
+                        <option value="" disabled selected hidden>Please Choose...</option>
+                        <option value="1">Strongly Disagree</option>
+                        <option value="2">Somewhat Disagree</option>
+                        <option value="3">Neutral</option>
+                        <option value="4">Somewhat Agree</option>
+                        <option value="5">Strongly Agree</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit" id="survey-submit" class="btn btn-primary my-3">Submit</button>
+                </div>
+            </form>
+        </div>
 
-        <div class="modal" id="modal-1" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content text-center">
-                    <div class="modal-header">
-                        <h5 class="modal-title text-center">Check Out Your New Friend</h5>
-                        <button type="button" class="close redirect" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <h1 id="modal-friend-name"></h1>
-                        <img src="#" id="modal-friend-img" alt="Friend's Picture">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary redirect">Close</button>
-                    </div>
+    </div>
+    <div class="container pl-0 mb-4">
+        <a href="/api/friends">Friends List (API)</a><a href="https://github.com/chrisducey01/FriendFinder" target="_blank">GitHub
+            Repo</a>
+    </div>
+    <div class="modal" id="modal-1" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content text-center">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center">Check Out Your New Friend</h5>
+                    <button type="button" class="close redirect" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h1 id="modal-friend-name"></h1>
+                    <img src="#" id="modal-friend-img" alt="Friend's Picture">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary redirect">Close</button>
                 </div>
             </div>
         </div>

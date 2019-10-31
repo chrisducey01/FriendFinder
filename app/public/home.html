@@ -15,6 +15,15 @@
 </head>
 
 <body>
+    <style>
+        div > a:first-child{
+            border-right: 1px solid black;
+        }
+        div > a{
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+    </style>
 
     <div class="container">
         <div class="jumbotron">
@@ -23,6 +32,9 @@
             <h3 class="mb-3 pb-3">Answers some questions, find your bestie.  It's that simple.</h3>
             <a class="btn btn-primary btn-lg" href="/survey" role="button"><i class="fas fa-clipboard-list"></i> Let's Get Started</a>
         </div>
+    </div>
+    <div class="container">
+        <a href="/api/friends">Friends List (API)</a><a href="https://github.com/chrisducey01/FriendFinder" target="_blank">GitHub Repo</a>
     </div>
 
 
