@@ -1,7 +1,14 @@
 
 module.exports = function (app, connection) {
     app.get("/api/friends", (req, res) => {
-        // res.json(friendArr);
+        connection.query("SELECT * FROM users", (err, data) => {
+            if (err) {
+                console.log("Error getting friend list from db.");
+                console.log(err);
+                return res.status(500).end();
+            }
+            res.json(data);
+        });
     });
 
 
